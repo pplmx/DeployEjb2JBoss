@@ -1,3 +1,14 @@
 group 'individual.cc'
 version '1.0-SNAPSHOT'
 
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+}
+
+subprojects {
+    group 'individual.cc'
+    version '1.0-SNAPSHOT'
+}

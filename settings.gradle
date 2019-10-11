@@ -1,2 +1,6 @@
 rootProject.name = 'j2ee'
+include 'ejb'
+include 'web'
+include 'app'
+include 'ear'
 

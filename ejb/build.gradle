@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = 11
+
+dependencies {
+    compileOnly 'javax:javaee-api:8.0.1'
+}

@@ -1,0 +1,11 @@
+plugins {
+    id 'war'
+}
+
+sourceCompatibility = 11
+
+dependencies {
+    providedCompile project(':ejb')
+
+    compileOnly 'javax:javaee-api:8.0.1'
+}

@@ -4,8 +4,13 @@ plugins {
 
 sourceCompatibility = 11
 
+ext {
+    jerseyVersion = '2.29.1'
+}
+
 dependencies {
     providedCompile project(':ejb')
-
     compileOnly 'javax:javaee-api:8.0.1'
+
+    compileOnly "org.glassfish.jersey.containers:jersey-container-servlet:${jerseyVersion}"
 }

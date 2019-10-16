@@ -1,26 +1,26 @@
 package individual.cc.app.configuration;
 
-import individual.cc.jar.bean.session.SimpleStatelessEjb;
-import org.glassfish.jersey.internal.inject.AbstractBinder;
+import individual.cc.app.servlet.HelloController;
 import org.glassfish.jersey.server.ResourceConfig;
 
-import javax.ejb.EJB;
 import javax.ws.rs.ApplicationPath;
 
-@ApplicationPath("/rest")
+/**
+ * 'services', '/services', or '/services/*'
+ * is all the same. Jersey will change it to be '/services/*'
+ * <==>
+ * <servlet-mapping>
+ * <servlet-name>RestApplication</servlet-name>
+ * <url-pattern>/services/*</url-pattern>
+ * </servlet-mapping>
+ * <p>
+ * Here with the @ApplicationPath, it's just like if we configured the servlet mapping in the web.xml
+ */
+@ApplicationPath("services")
 public class RestApplication extends ResourceConfig {
 
-    @EJB
-    private SimpleStatelessEjb simpleStatelessEjb;
-
     public RestApplication() {
-        packages("individual.cc.app.servlet");
-
-        register(new AbstractBinder() {
-            @Override
-            protected void configure() {
-                bind(simpleStatelessEjb).to(SimpleStatelessEjb.class);
-            }
-        });
+//        packages("individual.cc.app.servlet");
+        register(HelloController.class);
     }
 }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>individual.cc</groupId>
+        <artifactId>j2ee</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ear</artifactId>
+    <packaging>ear</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>individual.cc</groupId>
+            <artifactId>web</artifactId>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>individual.cc</groupId>
+            <artifactId>app</artifactId>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <!--<initializeInOrder>true</initializeInOrder>-->
+                    <modules>
+                        <webModule>
+                            <groupId>individual.cc</groupId>
+                            <artifactId>web</artifactId>
+                            <!--MUST reset the name of a package what is in ear package-->
+                            <bundleFileName>web-in-ear.war</bundleFileName>
+                            <!--set custom context root-->
+                            <contextRoot>/web</contextRoot>
+                        </webModule>
+                        <webModule>
+                            <groupId>individual.cc</groupId>
+                            <artifactId>app</artifactId>
+                            <!--MUST reset the name of a package what is in ear package-->
+                            <bundleFileName>app-in-ear.war</bundleFileName>
+                            <!--set custom context root-->
+                            <contextRoot>/app</contextRoot>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

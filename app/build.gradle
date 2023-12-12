@@ -5,7 +5,7 @@ plugins {
 sourceCompatibility = 11
 
 ext {
-    jerseyVersion = '3.0.4'
+    jerseyVersion = '3.1.5'
 }
 
 dependencies {
